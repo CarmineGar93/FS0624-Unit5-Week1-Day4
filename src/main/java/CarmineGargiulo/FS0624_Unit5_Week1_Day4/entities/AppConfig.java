@@ -15,9 +15,7 @@ import java.util.Scanner;
 public class AppConfig {
     @Bean
     public Topping getTomato(){
-        Topping topping = new Topping(0.5, 30);
-        topping.setName("Tomato");
-        return topping;
+        return new Topping("Tomato",0.5, 30);
     }
 
     @Bean
@@ -27,37 +25,27 @@ public class AppConfig {
 
     @Bean
     public Topping getCheese(){
-        Topping topping = new Topping(0.5, 80);
-        topping.setName("Cheese");
-        return topping;
+        return new Topping("Cheese",0.5, 80);
     }
 
     @Bean
     public Topping getSausage(){
-        Topping topping = new Topping(1, 100);
-        topping.setName("Sausage");
-        return topping;
+        return new Topping("Sausage",1, 100);
     }
 
     @Bean
     public Topping getMushrooms(){
-        Topping topping = new Topping(1, 40);
-        topping.setName("Mushrooms");
-        return topping;
+        return new Topping("Mushrooms",1, 40);
     }
 
     @Bean
     public Topping getSalame(){
-        Topping topping = new Topping(0.5, 70);
-        topping.setName("Spicy salame");
-        return topping;
+        return new Topping("Spicy salame",0.5, 70);
     }
 
     @Bean
     public Topping getMelanzane(){
-        Topping topping = new Topping(0.5, 20);
-        topping.setName("Eggplant");
-        return topping;
+        return new Topping("Eggplant",0.5, 20);
     }
 
     @Bean
@@ -71,9 +59,7 @@ public class AppConfig {
     @Bean(name = "Pizza Margherita")
     @Scope("prototype")
     public Pizza getPizzaMargherita(){
-        Pizza pizza = new Pizza(4.99, 1000, getToppingBase());
-        pizza.setName("Pizza Margherita");
-        return pizza;
+        return new Pizza("Pizza Margherita",4.99, 1000, getToppingBase());
     }
 
     @Bean(name = "Pizza sausage and mushrooms")
@@ -107,30 +93,22 @@ public class AppConfig {
 
     @Bean
     public Drink getCocaCola(){
-        Drink drink = new Drink(2, 150, 0.5);
-        drink.setName("Coca cola");
-        return drink;
+        return new Drink("Coca cola",2, 150, 0.5);
     }
 
     @Bean
     public Drink getWater(){
-        Drink drink = new Drink(1, 0, 1);
-        drink.setName("Water");
-        return drink;
+        return new Drink("Water",1, 0, 1);
     }
 
     @Bean
     public Drink getFanta(){
-        Drink drink = new Drink(1.5, 120, 0.33);
-        drink.setName("Fanta");
-        return drink;
+        return new Drink("Fanta",1.5, 120, 0.33);
     }
 
     @Bean
     public Drink getBeer(){
-        Drink drink = new Drink(3, 250, 0.66);
-        drink.setName("Beer");
-        return drink;
+        return new Drink("Beer",3, 250, 0.66);
     }
 
    @Bean

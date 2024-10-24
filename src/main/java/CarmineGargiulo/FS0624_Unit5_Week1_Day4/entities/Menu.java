@@ -1,17 +1,23 @@
 package CarmineGargiulo.FS0624_Unit5_Week1_Day4.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import jakarta.persistence.*;
+import jakarta.persistence.Table;
+import lombok.*;
 
 import java.util.List;
 
 @AllArgsConstructor
 @Getter
-@Component
+@NoArgsConstructor
+@Entity
+@Table(name = "menu")
 public class Menu {
-    @Autowired
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Setter(AccessLevel.NONE)
+    @Column(name = "menu_id")
+    private long menuId;
+    @OneToMany(mappedBy = "menu")
     private List<MenuProduct> productList;
 
 
