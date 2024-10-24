@@ -9,6 +9,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @Getter
+@Setter
 @NoArgsConstructor
 @Entity
 @Table(name = "menu")
@@ -19,7 +20,7 @@ public class Menu {
     @Setter(AccessLevel.NONE)
     @Column(name = "menu_id")
     private long menuId;
-    @OneToMany(mappedBy = "menu")
+    @OneToMany(mappedBy = "menu", fetch = FetchType.EAGER)
     private List<MenuProduct> productList;
 
 

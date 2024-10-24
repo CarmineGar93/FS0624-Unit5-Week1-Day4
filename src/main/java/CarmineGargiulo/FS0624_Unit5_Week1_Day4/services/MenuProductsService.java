@@ -1,6 +1,7 @@
 package CarmineGargiulo.FS0624_Unit5_Week1_Day4.services;
 
 import CarmineGargiulo.FS0624_Unit5_Week1_Day4.entities.MenuProduct;
+import CarmineGargiulo.FS0624_Unit5_Week1_Day4.entities.Topping;
 import CarmineGargiulo.FS0624_Unit5_Week1_Day4.repositories.MenuProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,10 @@ public class MenuProductsService {
         for (MenuProduct product : menuProducts){
             this.saveProduct(product);
         }
+    }
+
+    public List<MenuProduct> findAllProducts(){
+        return menuProductsRepository.findAll();
     }
 
     public long count(){

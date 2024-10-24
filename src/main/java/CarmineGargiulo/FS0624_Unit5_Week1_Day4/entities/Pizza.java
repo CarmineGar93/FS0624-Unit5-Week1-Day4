@@ -14,7 +14,7 @@ import java.util.List;
 @Table(name = "pizzas")
 @NoArgsConstructor
 public class Pizza extends MenuProduct{
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(joinColumns = @JoinColumn(name = "pizza_id"), inverseJoinColumns = @JoinColumn(name = "topping_id"), name = "pizzas_toppings")
     private List<Topping> toppingList;
 

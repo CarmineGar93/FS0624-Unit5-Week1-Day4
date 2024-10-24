@@ -1,9 +1,8 @@
 package CarmineGargiulo.FS0624_Unit5_Week1_Day4;
 
 import CarmineGargiulo.FS0624_Unit5_Week1_Day4.entities.*;
-import CarmineGargiulo.FS0624_Unit5_Week1_Day4.services.MenuProductsService;
-import CarmineGargiulo.FS0624_Unit5_Week1_Day4.services.PizzasService;
-import CarmineGargiulo.FS0624_Unit5_Week1_Day4.services.ToppingService;
+import CarmineGargiulo.FS0624_Unit5_Week1_Day4.exceptions.NotFoundException;
+import CarmineGargiulo.FS0624_Unit5_Week1_Day4.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
@@ -16,6 +15,10 @@ import java.util.List;
 @Order(1)
 public class InizializzaDbRunner implements CommandLineRunner {
     @Autowired
+    private TablesService tablesService;
+    @Autowired
+    private MenuService menuService;
+    @Autowired
     private MenuProductsService menuProductsService;
     @Autowired
     private PizzasService pizzasService;
@@ -24,10 +27,13 @@ public class InizializzaDbRunner implements CommandLineRunner {
     @Autowired
     private List<MenuProduct> menuProducts;
     @Autowired
+    private List<Table> tableList;
+    @Autowired
     private Menu menu;
     @Override
     public void run(String... args) throws Exception {
         if(menuProductsService.count() == 0){
+            menuService.saveMenu(menu);
             menuProductsService.saveManyProduct(menuProducts);
         }
         if(pizzasService.count() == 0){
@@ -48,7 +54,19 @@ public class InizializzaDbRunner implements CommandLineRunner {
             pizzaSausageMushrooms.addTopping(mushrooms);
             pizzasService.saveManyPizzas(Arrays.asList(pizzaMargherita, pizzaDiavola, pizzaSausageEggplant, pizzaSausageMushrooms));
 
-
+        }
+        /*if(menuService.count() > 0){
+            try{
+                Menu menu1 = menuService.getMenuById(1);
+                List<MenuProduct> menuProductList = menuProductsService.findAllProducts();
+                menuProductList.forEach(menuProduct -> menuProduct.setMenu(menu1));
+                menuProductsService.saveManyProduct(menuProductList);
+            } catch (NotFoundException e){
+                System.out.println(e.getMessage());
+            }
+        }*/
+        if(tablesService.countTables() == 0){
+            tablesService.saveManyTable(tableList);
         }
     }
 }

@@ -21,7 +21,7 @@ public abstract class MenuProduct {
     protected String name;
     protected double price;
     protected int calories;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "menu_id")
     private Menu menu;
 

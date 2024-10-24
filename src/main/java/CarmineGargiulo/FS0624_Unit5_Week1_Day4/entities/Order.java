@@ -28,7 +28,6 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "table_id")
     private Table table;
-    @Setter(AccessLevel.NONE)
     @ManyToMany
     @JoinTable(joinColumns = @JoinColumn(name = "order_id"), inverseJoinColumns = @JoinColumn(name = "product_id"), name = "orders_products")
     private List<MenuProduct> productList;
