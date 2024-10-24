@@ -3,6 +3,7 @@ package CarmineGargiulo.FS0624_Unit5_Week1_Day4.entities;
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
 import lombok.*;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "menu")
+@Component
 public class Menu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -48,7 +48,7 @@ public class AppConfig {
         return new Topping("Eggplant",0.5, 20);
     }
 
-    @Bean
+  /*  @Bean
     public List<Topping> getToppingBase(){
         List<Topping> base = new ArrayList<>();
         base.add(getCheese());
@@ -89,7 +89,7 @@ public class AppConfig {
         pizza.addTopping(getSausage());
         pizza.setName("Pizza sausage and eggplant");
         return pizza;
-    }
+    }*/
 
     @Bean
     public Drink getCocaCola(){
