@@ -1,9 +1,9 @@
 package CarmineGargiulo.FS0624_Unit5_Week1_Day4;
 
-import CarmineGargiulo.FS0624_Unit5_Week1_Day2.entities.*;
-import CarmineGargiulo.FS0624_Unit5_Week1_Day2.enums.OrderState;
-import CarmineGargiulo.FS0624_Unit5_Week1_Day2.enums.TableState;
-import CarmineGargiulo.FS0624_Unit5_Week1_Day2.exceptions.OccupiedOrUnmatchableTableException;
+import CarmineGargiulo.FS0624_Unit5_Week1_Day4.entities.*;
+import CarmineGargiulo.FS0624_Unit5_Week1_Day4.enums.OrderState;
+import CarmineGargiulo.FS0624_Unit5_Week1_Day4.enums.TableState;
+import CarmineGargiulo.FS0624_Unit5_Week1_Day4.exceptions.OccupiedOrUnmatchableTableException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -27,7 +27,7 @@ public class MyRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         AnnotationConfigApplicationContext ctx =
-                new AnnotationConfigApplicationContext(Fs0624Unit5Week1Day2Application.class);
+                new AnnotationConfigApplicationContext(Fs0624Unit5Week1Day4Application.class);
         menu.stampaMenu();
         while (true) {
             System.out.println("Welcome how many people u are ?");
